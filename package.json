@@ -11,6 +11,10 @@
     "json",
     "react-intl"
   ],
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/jamesmart77/react-intl-macro-json"
+  },
   "author": "James Martineau",
   "license": "ISC"
 }
