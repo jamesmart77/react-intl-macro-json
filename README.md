@@ -1,5 +1,6 @@
 # react-intl-macro-json
 
+### [npm package](https://www.npmjs.com/package/react-intl-json-macro)
 
 When creating new keys for [react-intl](https://www.npmjs.com/package/react-intl) elements in your application, this package allows users to enter new key:value into CLI to write to react-intl json files and sort.
 
