@@ -1,11 +1,13 @@
 const fs = require('fs');
-const jsonFileDir = './src/i18n/locales';
+const jsonFileDir = process.argv[2];
 
 const { promisify } = require('util');
 const readFileAsync = promisify(fs.readFile);
 
-const newKey = process.argv[2];
-const newValue = process.argv[3];
+console.log("Defined JSON Directory: ", jsonFileDir);
+
+const newKey = process.argv[3];
+const newValue = process.argv[4];
 
 let files = fs.readdirSync(jsonFileDir);
 let jsonFiles = files.filter(file => file.includes('.json'));
@@ -21,20 +23,16 @@ jsonFiles.forEach(fileName => {
 
 async function isNewKeyUnique(fileName, newKey){
     let responseObject = await parseFileData(fileName);
-    let existingKeys = Object.keys(responseObject);
+    let isDuplicate = responseObject.hasOwnProperty(newKey);
 
-    let isUnique = existingKeys.every(key => key !== newKey);
-
-    if(isUnique){
-        updateFile(fileName);
+    if(!isDuplicate){
+        updateFile(fileName, responseObject);
     } else {
-        console.log("key already exists in: ", fileName);
+        console.log("key already exists in:", fileName);
     }
 }
 
-async function updateFile(fileName){
-    let data = await parseFileData(fileName);
-
+async function updateFile(fileName, data){
     //add new key/value pair to file
     let updatedObj = Object.assign(newObjToAdd, data);
 
@@ -49,7 +47,7 @@ async function updateFile(fileName){
 
     fs.writeFile(filePath, json, 'utf8', function(err) { // write it back
         if (err) throw err;
-        console.log(`Saved ${newObjToAdd} in ${fileName}`);
+        console.log(`Saved ${newKey}:${newValue} in ${fileName}`);
     });
 }
 

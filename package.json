@@ -1,6 +1,6 @@
 {
   "name": "react-intl-json-macro",
-  "version": "1.0.0",
+  "version": "1.0.4",
   "description": "When creating new keys for react-intl elements in your application, this package allows users to enter new key:value into CLI to write to react-intl json files and sort.",
   "main": "index.js",
   "scripts": {
