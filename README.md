@@ -13,5 +13,22 @@ When creating new keys for [react-intl](https://www.npmjs.com/package/react-intl
  >>`"add:intlMessage": "node node_modules/react-intl-json-macro [JSON file directory location]"`
  
  >`}`
-  * For example: `"add:intlMessage": "node node_modules/react-intl-json-macro './i18n/locales'"`
+  * For example: `"add:intlMessage": "node node_modules/react-intl-json-macro './src/i18n/locales'"`
   
+
+### Running Tool
+1. `npm run add:intlMessage "KEY NAME" "MESSAGE NAME"`  
+For example: `npm run add:intlMessage "header.subText" "default message text"`
+2. All JSON files in the directory you have defined in the npm scripts will then be updated with the key:value pair you have executed. All keys in each JSON file will be alphabetized after the new key:value pair has been added.
+
+
+### Additional Notes
+  * Installing [Prettier](https://www.npmjs.com/package/prettier) will help keep the JSON files formatted nicely
+  * Install: `npm install --save-dev prettier
+  * Update npm scripts for prettier
+  >`"scripts": {`
+  >>`"pretty:json": "prettier --write './src/i18n/locales/*.json'"`
+ 
+  >`}`
+  * Run scripts together now  
+  `npm run add:intlMessage "header.subText" "default message text" && npm run pretty:json`
