@@ -14,7 +14,7 @@ When creating new keys for [react-intl](https://www.npmjs.com/package/react-intl
  >>`"add:intlMessage": "node node_modules/react-intl-json-macro [JSON file directory location]"`
  
  >`}`
-  * For example: `"add:intlMessage": "node node_modules/react-intl-json-macro './src/i18n/locales'"`
+  * For example: `"add:intlMessage": "node node_modules/react-intl-json-macro './src/i18n/locales/*.json'"`
   
 
 ### Running Tool
